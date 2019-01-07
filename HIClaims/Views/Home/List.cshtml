@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<HIClaims.Models.Claim>
 
 <p style="margin-top:20px">
-    <button class="btn btn-info" name="NewClaim" id="NewClaim" onclick='@Url.Action("Index", "Home")'> Claim</button>
+    <button class="btn btn-info" name="NewClaim" id="NewClaim" onclick="location.href='@Url.Action("ModalPopup", "Home")'">New Claim</button>
     @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table table-hover">
@@ -60,45 +60,3 @@
 
 </div>
 
-@section scripts
-{
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script>
-        var TeamDetailPostBackURL = '/Home/ModalPopup';
-        $(function () {
-            $("#NewClaim").click(function () {
-                debugger;
-                var $buttonClicked = $(this);
-                var id = $buttonClicked.attr('data-id');
-                var options = { "backdrop": "static", keyboard: true };
-                $.ajax({
-                    type: "GET",
-                    url: TeamDetailPostBackURL,
-                    contentType: "application/json; charset=utf-8",
-                    data: { "Id": id },
-                    datatype: "json",
-                    success: function (data) {
-                        debugger;
-                        $('#myModalContent').html(data);
-                        $('#myModal').modal(options);
-                        $('#myModal').modal('show');
-
-                    },
-                    error: function () {
-                        alert("Dynamic content load failed.");
-                    }
-                });
-            });
-            //$("#closebtn").on('click',function(){
-            //    $('#myModal').modal('hide');
-
-            $("#closbtn").click(function () {
-                $('#myModal').modal('hide');
-            });
-        });
-
-    </script>
-
-}

@@ -9,6 +9,7 @@ namespace HIClaims.Models
     public class Claim
     {
         public int ClaimNo { get; set; }
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Name Should only contain alphabets")]
         public string CustomerName { get; set; }
         public DateTime ClaimedDate { get; set; }
         public float ClaimAmount { get; set; }

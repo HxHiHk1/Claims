@@ -64,7 +64,7 @@ namespace HIClaims.Tests.Controllers
                 ClaimNo = 1234,
                 CustomerName = "Hexaware Technologies",
                 ClaimAmount = 1500,
-                ClaimedDate = DateTime.Now.AddDays(-3),
+                ClaimedDate = DateTime.Now.AddDays(3),
                 Gender = "Male",
                 PolicyNo = 987654321 };
 

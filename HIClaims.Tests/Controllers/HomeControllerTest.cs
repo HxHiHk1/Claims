@@ -54,24 +54,7 @@ namespace HIClaims.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
-        [TestMethod]
-        public void AddClaims()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            Claim myClaim = new Claim {
-                ClaimNo = 1234,
-                CustomerName = "Hexaware Technologies",
-                ClaimAmount = 1500,
-                ClaimedDate = DateTime.Now.AddDays(-3),
-                Gender = "Male",
-                PolicyNo = 987654321 };
-
-            // Assert
-            Assert.Equals(controller.AddClaims(myClaim), true);
  
-        }
         [TestMethod]
         public void AddClaims_Negative()
         {

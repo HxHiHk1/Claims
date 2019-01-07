@@ -16,7 +16,7 @@ namespace HIClaims.BL
             string result = string.Empty;
             var claims = new List<Claim>();
             
-            var resourcePath = HttpRuntime.AppDomainAppPath+ "/Resources/ClaimData.json";
+            var resourcePath = HttpRuntime.AppDomainAppPath+ "/bin/Resources/ClaimData.json";
             using (StreamReader reader = new StreamReader(resourcePath))
             {
                 result = reader.ReadToEnd();

@@ -29,7 +29,7 @@ namespace HIClaims.BL
         {
             try
             {
-                var resourcePath = HttpRuntime.AppDomainAppPath + "/Resources/ClaimData.json";
+                var resourcePath = HttpRuntime.AppDomainAppPath + "/bin/Resources/ClaimData.json";
 
                 var claims = GetClaims();
                 claims.Add(claim);

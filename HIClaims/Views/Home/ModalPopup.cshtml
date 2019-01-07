@@ -12,7 +12,7 @@
             <tr>
                 <td>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.ClaimNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.Label("Claim Number", htmlAttributes: new { @class = "control-label col-md-2"})
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.ClaimNo, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.ClaimNo, "", new { @class = "text-danger" })
@@ -21,7 +21,7 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.Label("Customer Name", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
@@ -32,7 +32,7 @@
             <tr>
                 <td>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.ClaimedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.Label("Claim Date", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.ClaimedDate, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.ClaimedDate, "", new { @class = "text-danger" })
@@ -41,7 +41,7 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.ClaimAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.Label("Claim Amount", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.ClaimAmount, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.ClaimAmount, "", new { @class = "text-danger" })
@@ -52,7 +52,7 @@
             <tr>
                 <td>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.PolicyNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.Label("Policy Number", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.PolicyNo, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.PolicyNo, "", new { @class = "text-danger" })

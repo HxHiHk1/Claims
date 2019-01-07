@@ -69,7 +69,7 @@ namespace HIClaims.Tests.Controllers
                 PolicyNo = 987654321 };
 
             // Assert
-            Assert.ThrowsException<Exception>(() => controller.AddClaims(myClaim));
+            Assert.Equal(controller.AddClaims(myClaim), true);
  
         }
     }

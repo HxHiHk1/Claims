@@ -100,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HIClaims\HIClaims.csproj">
-      <Project>{B0ED05E0-F9C2-4D98-9380-B4E8FFF28DAF}</Project>
+      <Project>{b0ed05e0-f9c2-4d98-9380-b4e8fff28daf}</Project>
       <Name>HIClaims</Name>
     </ProjectReference>
   </ItemGroup>

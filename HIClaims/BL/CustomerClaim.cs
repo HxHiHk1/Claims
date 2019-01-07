@@ -27,20 +27,27 @@ namespace HIClaims.BL
 
         public bool SaveClaims( Claim claim)
         {
+            bool returnValue = false;
             try
             {
+                if (claim.ClaimedDate > DateTime.Now)
+                    throw new Exception("Claim can not be future date");
+                
                 var resourcePath = HttpRuntime.AppDomainAppPath + "/bin/Resources/ClaimData.json";
 
                 var claims = GetClaims();
                 claims.Add(claim);
                 var result = JsonConvert.SerializeObject(claims);
                 System.IO.File.WriteAllText(resourcePath, result);
-                return true;
+                returnValue = true;
             }catch(Exception e)
             {
-                return false;
+                returnValue = false;
+                throw;
             }
+            return returnValue;
 
         }
+
     }
 }

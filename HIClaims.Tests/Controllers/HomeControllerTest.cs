@@ -69,8 +69,28 @@ namespace HIClaims.Tests.Controllers
                 PolicyNo = 987654321 };
 
             // Assert
-            Assert.Equal(controller.AddClaims(myClaim), true);
+            Assert.Equals(controller.AddClaims(myClaim), true);
  
+        }
+        [TestMethod]
+        public void AddClaims_Negative()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            Claim myClaim = new Claim
+            {
+                ClaimNo = 1234,
+                CustomerName = "Hexaware Technologies",
+                ClaimAmount = 1500,
+                ClaimedDate = DateTime.Now.AddDays(3),
+                Gender = "Male",
+                PolicyNo = 987654321
+            };
+
+            // Assert
+            Assert.ThrowsException<Exception>(() => controller.AddClaims(myClaim));
+
         }
     }
 }

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<HIClaims.Models.Claim>
+
+<p style="margin-top:20px">
+    <button class="btn btn-info" name="NewClaim" id="NewClaim" onclick='@Url.Action("Index", "Home")'> Claim</button>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table table-hover">
+    <tr>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.ClaimedDate)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.ClaimAmount)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.ClaimNo)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.PolicyNo)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.ClaimedDate)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.ClaimAmount)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.ClaimNo)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.PolicyNo)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+    </tr>
+    }
+</table>
+
+<div id='myModal' class='modal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        var TeamDetailPostBackURL = '/Home/ModalPopup';
+        $(function () {
+            $("#NewClaim").click(function () {
+                debugger;
+                var $buttonClicked = $(this);
+                var id = $buttonClicked.attr('data-id');
+                var options = { "backdrop": "static", keyboard: true };
+                $.ajax({
+                    type: "GET",
+                    url: TeamDetailPostBackURL,
+                    contentType: "application/json; charset=utf-8",
+                    data: { "Id": id },
+                    datatype: "json",
+                    success: function (data) {
+                        debugger;
+                        $('#myModalContent').html(data);
+                        $('#myModal').modal(options);
+                        $('#myModal').modal('show');
+
+                    },
+                    error: function () {
+                        alert("Dynamic content load failed.");
+                    }
+                });
+            });
+            //$("#closebtn").on('click',function(){
+            //    $('#myModal').modal('hide');
+
+            $("#closbtn").click(function () {
+                $('#myModal').modal('hide');
+            });
+        });
+
+    </script>
+
+}

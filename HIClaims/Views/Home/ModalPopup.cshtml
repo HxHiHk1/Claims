@@ -8,11 +8,11 @@
         <h4>New Claim Application Form</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <table style="width:900px">
+        <table style="width:900px;">
             <tr>
                 <td>
                     <div class="form-group">
-                        @Html.Label("Claim Number", htmlAttributes: new { @class = "control-label col-md-2"})
+                        @Html.Label("Claim Number", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.ClaimNo, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.ClaimNo, "", new { @class = "text-danger" })
@@ -36,6 +36,9 @@
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.ClaimedDate, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.ClaimedDate, "", new { @class = "text-danger" })
+                            <span>
+                                for ex:MM/dd/yyyy
+                            </span>
                         </div>
                     </div>
                 </td>
@@ -69,9 +72,17 @@
                             @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })*@
                             @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
                         </div>
-                        <span>
-                            for ex:MM/dd/yyyy
-                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="form-group">
+                        @Html.Label("Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @*@Html.ValidationMessageFor(model => model.PolicyNo, "", new { @class = "text-danger" })*@
+                        </div>
                     </div>
                 </td>
             </tr>

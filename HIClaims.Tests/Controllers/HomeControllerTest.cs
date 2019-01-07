@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HIClaims;
 using HIClaims.Controllers;
+using HIClaims.Models;
+
+
 
 namespace HIClaims.Tests.Controllers
 {
@@ -43,12 +46,31 @@ namespace HIClaims.Tests.Controllers
         {
             // Arrange
             HomeController controller = new HomeController();
-
+            
             // Act
             ViewResult result = controller.Contact() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void AddClaims()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            Claim myClaim = new Claim {
+                ClaimNo = 1234,
+                CustomerName = "Hexaware Technologies",
+                ClaimAmount = 1500,
+                ClaimedDate = DateTime.Now.AddDays(-3),
+                Gender = "Male",
+                PolicyNo = 987654321 };
+
+            // Assert
+            Assert.ThrowsException<Exception>(() => controller.AddClaims(myClaim));
+ 
         }
     }
 }

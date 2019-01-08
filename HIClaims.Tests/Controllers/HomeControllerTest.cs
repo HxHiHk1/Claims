@@ -72,7 +72,9 @@ namespace HIClaims.Tests.Controllers
             };
 
             // Assert
-            Assert.ThrowsException<Exception>(() => controller.AddClaims(myClaim));
+            var result = controller.AddClaims(myClaim) as ViewResult;
+            Assert.IsTrue(string.IsNullOrEmpty(result.ViewName) || result.ViewName == "ModalPopup");
+
 
         }
     }

@@ -2,6 +2,7 @@
 using HIClaims.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -27,6 +28,11 @@ namespace HIClaims.Controllers
             if(ModelState.IsValid)
             {
                 CustomerClaim cusomerclaim = new CustomerClaim();
+                if (claim.ClaimedDate > DateTime.Now.Date)
+                {
+                    ViewData["Error"] = "Claim cannot be in future date";
+                    return View("ModalPopup");
+                } 
                 cusomerclaim.SaveClaims(claim);
                 return RedirectToAction("List", "Home");
             }

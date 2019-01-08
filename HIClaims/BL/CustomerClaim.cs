@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Reflection;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace HIClaims.BL
 {
@@ -30,8 +31,6 @@ namespace HIClaims.BL
             bool returnValue = false;
             try
             {
-                if (claim.ClaimedDate > DateTime.Now.Date)
-                    throw new Exception("Claim can not be future date");
                 
                 //var resourcePath = HttpRuntime.AppDomainAppPath + "/bin/Resources/ClaimData.json";
                 var resourcePath = HttpContext.Current.Server.MapPath(@"~/bin/Resources/ClaimData.json");
